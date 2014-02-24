@@ -3,6 +3,7 @@ SCCaptureCamera
 
 A Custom Camera with AVCaptureSession to take a square picture. And the UI is patterned on Instagram.
 
+It can work in iPad, too.
 
 ScreenShots：
 ----------
