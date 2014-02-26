@@ -15,6 +15,11 @@ iPhone5:![image](https://github.com/Aevit/SCCaptureCamera/blob/master/screenShot
 
 Usage：
 ----------
+0、Import four frameworks: 
+```
+CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.framework
+```
+
 1、Drag "SCCaptureCamera" and "SCCommon" to your project.
 
 2、Import "SCNavigationController.h" and code like this:
@@ -36,7 +41,7 @@ add a notification whose name is kNotificationTakePicture (just search "kNotific
 
 
 
-Finally, set "SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA" which is in the file "SCCaptureCameraController.m" to 0, it is just a joke for the devices which cannot take a picture.
+Finally, set ```SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA``` which is in the file ```SCCaptureCameraController.m``` to ```0```, it is just a joke for the devices which cannot take a picture.
 
 
 
