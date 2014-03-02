@@ -8,7 +8,6 @@ It can work in iPad, too.
 ScreenShots：
 ----------
 
-iPhone4:![image](https://github.com/Aevit/SCCaptureCamera/blob/master/screenShot_iPhone4.png)
 
 iPhone5:![image](https://github.com/Aevit/SCCaptureCamera/blob/master/screenShot_iPhone5.png)
 
