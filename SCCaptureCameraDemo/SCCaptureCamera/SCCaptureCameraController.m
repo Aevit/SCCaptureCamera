@@ -97,13 +97,13 @@
   }
 
   //status bar
-  if (!self.navigationController) {
-    _isStatusBarHiddenBeforeShowCamera = [UIApplication sharedApplication].statusBarHidden;
-    if ([UIApplication sharedApplication].statusBarHidden == NO) {
-      //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
-      [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    }
-  }
+//  if (!self.navigationController) {
+//    _isStatusBarHiddenBeforeShowCamera = [UIApplication sharedApplication].statusBarHidden;
+//    if ([UIApplication sharedApplication].statusBarHidden == NO) {
+//      //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
+//      [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    }
+//  }
 
   //notification
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationOrientationChange object:nil];
@@ -148,11 +148,11 @@
 
 - (void)dealloc {
 
-  if (!self.navigationController) {
-    if ([UIApplication sharedApplication].statusBarHidden != _isStatusBarHiddenBeforeShowCamera) {
-      [[UIApplication sharedApplication] setStatusBarHidden:_isStatusBarHiddenBeforeShowCamera withAnimation:UIStatusBarAnimationSlide];
-    }
-  }
+//  if (!self.navigationController) {
+//    if ([UIApplication sharedApplication].statusBarHidden != _isStatusBarHiddenBeforeShowCamera) {
+//      [[UIApplication sharedApplication] setStatusBarHidden:_isStatusBarHiddenBeforeShowCamera withAnimation:UIStatusBarAnimationSlide];
+//    }
+//  }
 
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationOrientationChange object:nil];
 
