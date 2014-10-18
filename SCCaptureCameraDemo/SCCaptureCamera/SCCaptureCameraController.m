@@ -101,7 +101,7 @@
 //    _isStatusBarHiddenBeforeShowCamera = [UIApplication sharedApplication].statusBarHidden;
 //    if ([UIApplication sharedApplication].statusBarHidden == NO) {
 //      //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
-//      [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+      [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 //    }
 //  }
 
@@ -137,9 +137,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+}
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
@@ -222,7 +226,7 @@
   CGFloat theH = CAMERA_MENU_VIEW_HEIGH;
   UIView *parent = _topContainerView;
   for (int i = 0; i < actionArr.count; i++) {
-    UIButton * btn = [self buildButton:CGRectMake(eachW * i, 0, eachW, theH)
+    UIButton * btn = [self buildButton:CGRectMake(eachW * i, CAMERA_TOPVIEW_HEIGHT - theH, eachW, theH)
                           normalImgStr:[normalArr objectAtIndex:i]
                        highlightImgStr:[highlightArr objectAtIndex:i]
                         selectedImgStr:[selectedArr objectAtIndex:i]
