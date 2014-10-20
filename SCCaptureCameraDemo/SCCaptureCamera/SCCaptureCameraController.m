@@ -183,7 +183,7 @@
 
     UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, topFrame.size.width, topFrame.size.height)];
     emptyView.backgroundColor = [UIColor blackColor];
-    emptyView.alpha = 0.4f;
+    emptyView.alpha = 1.0f;
     [_topContainerView addSubview:emptyView];
   }
   [self addMenuViewButtons];
