@@ -206,7 +206,7 @@
 
   //拍照按钮
   CGFloat cameraBtnLength = 90;
-  [self buildButton:CGRectMake((SC_APP_SIZE.width - cameraBtnLength) / 2, _bottomContainerView.frame.size.height - cameraBtnLength , cameraBtnLength, cameraBtnLength)
+  [self buildButton:CGRectMake((SC_APP_SIZE.width - cameraBtnLength) / 2, (_bottomContainerView.frame.size.height - cameraBtnLength)/2 , cameraBtnLength, cameraBtnLength)
        normalImgStr:@"shot.png"
     highlightImgStr:@"shot_h.png"
      selectedImgStr:@""
@@ -240,7 +240,7 @@
   [_topContainerView viewWithTag:3].frame = switchCameraframe;
 
   CGRect flashFrame = [_topContainerView viewWithTag:2].frame;
-  flashFrame.origin.x = switchCameraframe.origin.x - 10 - flashFrame.size.width;
+  flashFrame.origin.x = (parent.frame.size.width - flashFrame.size.width) / 2;
   [_topContainerView viewWithTag:2].frame = flashFrame;
 }
 
