@@ -114,7 +114,19 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:kNotificationOrientationChange object:nil];
 
   _assetsLibrary = [[ALAssetsLibrary alloc] init];
+  _assetGroupList = [[NSMutableArray alloc] init];
+  [self loadGroupsData];
 
+  __weak SCCaptureCameraController *weakself = self;
+  [[NSNotificationCenter defaultCenter] addObserverForName:ALAssetsLibraryChangedNotification
+                                                    object:nil
+                                                     queue:[NSOperationQueue mainQueue]
+                                                usingBlock:^(NSNotification *note) {
+                                                  NSDictionary *userInfo = note.userInfo;
+                                                  if (!userInfo || [[userInfo allKeys] count] > 0) {
+                                                    [weakself loadGroupsData];
+                                                  }
+                                                }];
   //session manager
   SCCaptureSessionManager *manager = [[SCCaptureSessionManager alloc] init];
 
@@ -165,7 +177,7 @@
 //  }
 
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationOrientationChange object:nil];
-
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
 #if SWITCH_SHOW_FOCUSVIEW_UNTIL_FOCUS_DONE
   AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
   if (device && [device isFocusPointOfInterestSupported]) {
@@ -178,6 +190,7 @@
 
 // Load assets groups data from system.
 - (void)loadGroupsData {
+  [self.assetGroupList removeAllObjects];
   SCCaptureCameraController *__weak weakSelf = self;
 
   // Callback block for assets library to return result set with groups.
@@ -204,7 +217,7 @@
 }
 
 - (void)resetAlbumBtnImage {
-  ALAssetsGroup *group = [_assetGroupList lastObject];
+  ALAssetsGroup *group = [_assetGroupList firstObject];
   CGImageRef imageRef = [group posterImage];
   UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
   [_albumBtn setImage:image forState:UIControlStateNormal];
