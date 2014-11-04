@@ -12,6 +12,7 @@
 #import "SVProgressHUD.h"
 
 #import "SCNavigationController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 //static void * CapturingStillImageContext = &CapturingStillImageContext;
 //static void * RecordingContext = &RecordingContext;
@@ -42,9 +43,11 @@
 //    bottomContainerViewTypeAudio     =   1   //录音页面
 //} BottomContainerViewType;
 
-@interface SCCaptureCameraController () {
+@interface SCCaptureCameraController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
   int alphaTimes;
   CGPoint currTouchPoint;
+  ALAssetsLibrary *_assetsLibrary;
+  UIButton *_albumBtn;
 }
 
 @property (nonatomic, strong) SCCaptureSessionManager *captureManager;
@@ -63,6 +66,7 @@
 @property (nonatomic, strong) UIImageView *focusImageView;
 
 @property (nonatomic, strong) SCSlider *scSlider;
+@property (nonatomic, strong) NSMutableArray *assetGroupList;
 
 //@property (nonatomic) id runtimeErrorHandlingObserver;
 //@property (nonatomic) BOOL lockInterfaceRotation;
@@ -109,12 +113,14 @@
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationOrientationChange object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:kNotificationOrientationChange object:nil];
 
+  _assetsLibrary = [[ALAssetsLibrary alloc] init];
+
   //session manager
   SCCaptureSessionManager *manager = [[SCCaptureSessionManager alloc] init];
 
   //AvcaptureManager
   if (CGRectEqualToRect(_previewRect, CGRectZero)) {
-    self.previewRect = CGRectMake(0, 0, SC_APP_SIZE.width, SC_APP_SIZE.width + CAMERA_TOPVIEW_HEIGHT);
+    self.previewRect = CGRectMake(0, CAMERA_TOPVIEW_HEIGHT, SC_APP_SIZE.width, SC_APP_SIZE.width);
   }
   [manager configureWithParentLayer:self.view previewRect:_previewRect];
   self.captureManager = manager;
@@ -122,7 +128,7 @@
   [self addTopView];
   [self addbottomContainerView];
   [self addCameraMenuView];
-  [self addFocusView];
+//  [self addFocusView];
   [self addCameraCover];
 //  [self addPinchGesture];
 
@@ -170,6 +176,39 @@
   self.captureManager = nil;
 }
 
+// Load assets groups data from system.
+- (void)loadGroupsData {
+  SCCaptureCameraController *__weak weakSelf = self;
+
+  // Callback block for assets library to return result set with groups.
+  ALAssetsLibraryGroupsEnumerationResultsBlock groupResultBlock =
+  ^(ALAssetsGroup *group, BOOL *stop) {
+    if (group) {
+      if (group.numberOfAssets > 0) {
+        [weakSelf.assetGroupList addObject:group];
+      }
+    } else {
+      // Reset album button image after group data loaded successfully.
+      [weakSelf resetAlbumBtnImage];
+    }
+  };
+  // Error block for asstes library.
+  ALAssetsLibraryAccessFailureBlock failureBlock = ^(NSError *error) {
+
+  };
+
+  // Fetch assets groups from system's asstes library.
+  [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll
+                                usingBlock:groupResultBlock
+                              failureBlock:failureBlock];
+}
+
+- (void)resetAlbumBtnImage {
+  ALAssetsGroup *group = [_assetGroupList lastObject];
+  CGImageRef imageRef = [group posterImage];
+  UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
+  [_albumBtn setImage:image forState:UIControlStateNormal];
+}
 #pragma mark -------------UI---------------
 //顶部菜单
 - (void)addTopView {
@@ -212,8 +251,24 @@
      selectedImgStr:@""
              action:@selector(takePictureBtnPressed:)
          parentView:_bottomContainerView];
+
+  CGFloat albumBtnWidth = 50;
+  _albumBtn = [self buildButton:CGRectMake((SC_APP_SIZE.width - cameraBtnLength) / 2 - 25 - albumBtnWidth, (_bottomContainerView.frame.size.height - albumBtnWidth)/2, albumBtnWidth, albumBtnWidth)
+                   normalImgStr:nil
+                highlightImgStr:nil
+                 selectedImgStr:nil
+                         action:@selector(showAlbum)
+                     parentView:_bottomContainerView];
+  [_albumBtn setBackgroundColor:[UIColor grayColor]];
 }
 
+- (void)showAlbum {
+  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+  picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+  picker.allowsEditing = YES;
+  picker.delegate = self;
+  [self presentViewController:picker animated:YES completion:nil];
+}
 //菜单栏上的按钮
 - (void)addMenuViewButtons {
   NSMutableArray *normalArr = [[NSMutableArray alloc] initWithObjects:@"photo_close_icon", @"flashing_off",@"switch_camera",  nil];
@@ -626,5 +681,13 @@ void c_slideAlpha() {
 	return UIInterfaceOrientationPortrait;
 }
 #endif
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  [picker dismissViewControllerAnimated:YES completion:nil];
+  SCNavigationController *nav = (SCNavigationController*)self.navigationController;
+  if ([nav.scNaigationDelegate respondsToSelector:@selector(didTakePicture:image:)]) {
+    [nav.scNaigationDelegate didTakePicture:nav image:[info objectForKey:UIImagePickerControllerOriginalImage]];
+  }
+}
 
 @end

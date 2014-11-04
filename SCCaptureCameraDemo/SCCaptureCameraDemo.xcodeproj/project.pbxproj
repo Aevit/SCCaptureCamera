@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47C3E0FA1A0853A300DE3E22 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C3E0F91A0853A300DE3E22 /* AssetsLibrary.framework */; };
 		47EE25D519D4670E00755E90 /* photo_close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47EE25D419D4670E00755E90 /* photo_close_icon@2x.png */; };
 		E11D96AB18BAEA84005012B9 /* meizi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E11D96AA18BAEA84005012B9 /* meizi.jpg */; };
 		E14B95C6188E7CD200BE2690 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B95C5188E7CD200BE2690 /* PostViewController.m */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47C3E0F91A0853A300DE3E22 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		47EE25D419D4670E00755E90 /* photo_close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_close_icon@2x.png"; sourceTree = "<group>"; };
 		E11D96AA18BAEA84005012B9 /* meizi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = meizi.jpg; sourceTree = "<group>"; };
 		E14B95C4188E7CD200BE2690 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = Post/PostViewController.h; sourceTree = SOURCE_ROOT; };
@@ -128,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47C3E0FA1A0853A300DE3E22 /* AssetsLibrary.framework in Frameworks */,
 				E14F6096188A2ED000FE3CCA /* QuartzCore.framework in Frameworks */,
 				E14F6093188A2D7700FE3CCA /* CoreMedia.framework in Frameworks */,
 				E14F6095188A2D8100FE3CCA /* AVFoundation.framework in Frameworks */,
@@ -170,6 +173,7 @@
 		E14F600B188A2C8400FE3CCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47C3E0F91A0853A300DE3E22 /* AssetsLibrary.framework */,
 				E1CF9145188E3A0900380E3E /* CoreAudio.framework */,
 				E1CF9143188E3A0500380E3E /* AudioToolbox.framework */,
 				E1F1A80B188A997A00158677 /* CoreVideo.framework */,
@@ -503,7 +507,7 @@
 		E14F6030188A2C8400FE3CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SCCaptureCameraDemo/SCCaptureCameraDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/SCGPUImageFilter/GPUImage/framework/**";
@@ -523,7 +527,7 @@
 		E14F6031188A2C8400FE3CCA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SCCaptureCameraDemo/SCCaptureCameraDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/SCGPUImageFilter/GPUImage/framework/**";
