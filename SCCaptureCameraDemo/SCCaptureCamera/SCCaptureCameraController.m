@@ -220,7 +220,9 @@
   ALAssetsGroup *group = [_assetGroupList firstObject];
   CGImageRef imageRef = [group posterImage];
   UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
-  [_albumBtn setImage:image forState:UIControlStateNormal];
+  if (image) {
+    [_albumBtn setImage:image forState:UIControlStateNormal];
+  }
 }
 #pragma mark -------------UI---------------
 //顶部菜单
@@ -257,7 +259,7 @@
 - (void)addCameraMenuView {
 
   //拍照按钮
-  CGFloat cameraBtnLength = 90;
+  CGFloat cameraBtnLength = 80;
   [self buildButton:CGRectMake((SC_APP_SIZE.width - cameraBtnLength) / 2, (_bottomContainerView.frame.size.height - cameraBtnLength)/2 , cameraBtnLength, cameraBtnLength)
        normalImgStr:@"shot.png"
     highlightImgStr:@"shot_h.png"
@@ -265,14 +267,13 @@
              action:@selector(takePictureBtnPressed:)
          parentView:_bottomContainerView];
 
-  CGFloat albumBtnWidth = 50;
-  _albumBtn = [self buildButton:CGRectMake((SC_APP_SIZE.width - cameraBtnLength) / 2 - 25 - albumBtnWidth, (_bottomContainerView.frame.size.height - albumBtnWidth)/2, albumBtnWidth, albumBtnWidth)
-                   normalImgStr:nil
+  CGFloat albumBtnWidth = 40;
+  _albumBtn = [self buildButton:CGRectMake(((SC_APP_SIZE.width - cameraBtnLength) / 2 - albumBtnWidth)/2, (_bottomContainerView.frame.size.height - albumBtnWidth)/2, albumBtnWidth, albumBtnWidth)
+                   normalImgStr:@"take_photo_picture_default.png"
                 highlightImgStr:nil
                  selectedImgStr:nil
                          action:@selector(showAlbum)
                      parentView:_bottomContainerView];
-  [_albumBtn setBackgroundColor:[UIColor grayColor]];
 }
 
 - (void)showAlbum {
