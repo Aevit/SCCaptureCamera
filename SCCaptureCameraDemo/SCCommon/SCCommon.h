@@ -17,4 +17,7 @@
 
 + (void)saveImageToPhotoAlbum:(UIImage*)image;
 
++ (void)saveImageToCustomAlbum:(UIImage *)image withAlbumName:(NSString *)albumName;
+
++ (void)saveVideoToCustomAlbum:(NSURL *)videoUrl withAlbumName:(NSString *)albumName;
 @end
