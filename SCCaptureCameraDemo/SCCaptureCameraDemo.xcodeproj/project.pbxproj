@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		47C3E0FA1A0853A300DE3E22 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C3E0F91A0853A300DE3E22 /* AssetsLibrary.framework */; };
+		47EE0C4F1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EE0C4E1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		47EE25D519D4670E00755E90 /* photo_close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47EE25D419D4670E00755E90 /* photo_close_icon@2x.png */; };
-		956BA901BB5F4D5DE19B1717 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 393630163E6ADAD081874A2F /* libPods.a */; };
 		E14B95C6188E7CD200BE2690 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B95C5188E7CD200BE2690 /* PostViewController.m */; };
 		E14F600D188A2C8400FE3CCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F600C188A2C8400FE3CCA /* UIKit.framework */; };
 		E14F600F188A2C8400FE3CCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F600E188A2C8400FE3CCA /* Foundation.framework */; };
@@ -54,9 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38C549DEDD185934AFD0031E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		393630163E6ADAD081874A2F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C3E0F91A0853A300DE3E22 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		47EE0C4D1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		47EE0C4E1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		47EE25D419D4670E00755E90 /* photo_close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_close_icon@2x.png"; sourceTree = "<group>"; };
 		E14B95C4188E7CD200BE2690 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = Post/PostViewController.h; sourceTree = SOURCE_ROOT; };
 		E14B95C5188E7CD200BE2690 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = Post/PostViewController.m; sourceTree = SOURCE_ROOT; };
@@ -124,7 +125,6 @@
 		E1F1A573188A772D00158677 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		E1F1A809188A994300158677 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E1F1A80B188A997A00158677 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		E8F38B6EA8F31FB030446E8F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,21 +140,20 @@
 				E14F600D188A2C8400FE3CCA /* UIKit.framework in Frameworks */,
 				E14F600F188A2C8400FE3CCA /* Foundation.framework in Frameworks */,
 				E14F6011188A2C8400FE3CCA /* CoreGraphics.framework in Frameworks */,
-				956BA901BB5F4D5DE19B1717 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AAB17E7FEA1BBA05F0CD7EBD /* Pods */ = {
+		47EE0C4C1A16792800FAFE79 /* ALAssetsLibrary-CustomPhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
-				E8F38B6EA8F31FB030446E8F /* Pods.debug.xcconfig */,
-				38C549DEDD185934AFD0031E /* Pods.release.xcconfig */,
+				47EE0C4D1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				47EE0C4E1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 			);
-			name = Pods;
-			sourceTree = "<group>";
+			path = "ALAssetsLibrary-CustomPhotoAlbum";
+			sourceTree = SOURCE_ROOT;
 		};
 		E14B95C3188E7C9D00BE2690 /* Post */ = {
 			isa = PBXGroup;
@@ -171,7 +170,6 @@
 				E14F6012188A2C8400FE3CCA /* SCCaptureCameraDemo */,
 				E14F600B188A2C8400FE3CCA /* Frameworks */,
 				E14F600A188A2C8400FE3CCA /* Products */,
-				AAB17E7FEA1BBA05F0CD7EBD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +204,7 @@
 		E14F6012188A2C8400FE3CCA /* SCCaptureCameraDemo */ = {
 			isa = PBXGroup;
 			children = (
+				47EE0C4C1A16792800FAFE79 /* ALAssetsLibrary-CustomPhotoAlbum */,
 				E1F1A541188A772D00158677 /* Vendor */,
 				E152FC67188B9F3500BE1AE7 /* SCCommon */,
 				E1F1A550188A772D00158677 /* SCCaptureCamera */,
@@ -336,11 +335,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E14F602F188A2C8400FE3CCA /* Build configuration list for PBXNativeTarget "SCCaptureCameraDemo" */;
 			buildPhases = (
-				C7486A7E7ED3E3622D470EAF /* Check Pods Manifest.lock */,
 				E14F6005188A2C8400FE3CCA /* Sources */,
 				E14F6006188A2C8400FE3CCA /* Frameworks */,
 				E14F6007188A2C8400FE3CCA /* Resources */,
-				E44A9012D35966A4612DFA3E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,39 +402,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C7486A7E7ED3E3622D470EAF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E44A9012D35966A4612DFA3E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E14F6005188A2C8400FE3CCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -460,6 +424,7 @@
 				E157BB7218935CD400D80041 /* SCSlider.m in Sources */,
 				E157BB7518935CF600D80041 /* SCCommon.m in Sources */,
 				E157BB83189366CF00D80041 /* SVProgressHUD.m in Sources */,
+				47EE0C4F1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +518,6 @@
 		};
 		E14F6030188A2C8400FE3CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8F38B6EA8F31FB030446E8F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -574,7 +538,6 @@
 		};
 		E14F6031188A2C8400FE3CCA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38C549DEDD185934AFD0031E /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
