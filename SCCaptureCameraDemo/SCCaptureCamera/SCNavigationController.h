@@ -12,7 +12,7 @@
 @protocol SCNavigationControllerDelegate;
 
 @interface SCNavigationController : UINavigationController
-
+@property(nonatomic, copy)NSString *customAlbumName;
 
 - (void)showCameraWithParentController:(UIViewController*)parentController;
 

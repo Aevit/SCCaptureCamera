@@ -66,6 +66,7 @@
 #pragma mark - action(s)
 - (void)showCameraWithParentController:(UIViewController*)parentController {
     SCCaptureCameraController *con = [[SCCaptureCameraController alloc] init];
+  con.albumName = self.customAlbumName;
     [self setViewControllers:[NSArray arrayWithObjects:con, nil]];
     [parentController presentModalViewController:self animated:YES];
 }
