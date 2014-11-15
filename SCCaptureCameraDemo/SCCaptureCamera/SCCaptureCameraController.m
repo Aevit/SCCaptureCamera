@@ -525,10 +525,7 @@ void c_slideAlpha() {
   WEAKSELF_SC
   [_captureManager takePicture:^(UIImage *stillImage) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-      if (self.albumName.length == 0) {
-        self.albumName = @"Camera";
-      }
-      [SCCommon saveImageToCustomAlbum:stillImage withAlbumName:self.albumName];//存至本机
+      [SCCommon saveImageToPhotoAlbum:stillImage];//存至本机
     });
 
     [actiView stopAnimating];
