@@ -525,7 +525,7 @@ void c_slideAlpha() {
   WEAKSELF_SC
   [_captureManager takePicture:^(UIImage *stillImage) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-      [SCCommon saveImageToPhotoAlbum:stillImage];//存至本机
+      UIImageWriteToSavedPhotosAlbum(stillImage, nil, nil, nil);//存至本机
     });
 
     [actiView stopAnimating];
