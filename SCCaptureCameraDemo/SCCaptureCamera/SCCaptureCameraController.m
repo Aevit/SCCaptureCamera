@@ -700,7 +700,7 @@ void c_slideAlpha() {
   [picker dismissViewControllerAnimated:YES completion:nil];
   SCNavigationController *nav = (SCNavigationController*)self.navigationController;
   if ([nav.scNaigationDelegate respondsToSelector:@selector(didTakePicture:image:)]) {
-    [nav.scNaigationDelegate didTakePicture:nav image:[info objectForKey:UIImagePickerControllerOriginalImage]];
+    [nav.scNaigationDelegate didTakePicture:nav image:[info objectForKey:UIImagePickerControllerEditedImage]];
   }
 }
 
