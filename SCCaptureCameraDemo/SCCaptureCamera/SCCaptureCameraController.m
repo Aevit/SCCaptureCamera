@@ -277,11 +277,15 @@
 }
 
 - (void)showAlbum {
-  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-  picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  picker.allowsEditing = YES;
-  picker.delegate = self;
-  [self presentViewController:picker animated:YES completion:nil];
+  SCNavigationController *nav = (SCNavigationController*)self.navigationController;
+  if ([nav.scNaigationDelegate respondsToSelector:@selector(showAlbum:)]) {
+    [nav.scNaigationDelegate showAlbum:nav];
+  }
+//  UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//  picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//  picker.allowsEditing = YES;
+//  picker.delegate = self;
+//  [self presentViewController:picker animated:YES completion:nil];
 }
 //菜单栏上的按钮
 - (void)addMenuViewButtons {
