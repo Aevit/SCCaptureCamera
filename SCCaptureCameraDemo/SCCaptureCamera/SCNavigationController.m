@@ -32,18 +32,18 @@
 	// Do any additional setup after loading the view.
     self.navigationBarHidden = YES;
     self.hidesBottomBarWhenPushed = YES;
-    _isStatusBarHiddenBeforeShowCamera = [UIApplication sharedApplication].statusBarHidden;
-    if ([UIApplication sharedApplication].statusBarHidden == NO) {
-        //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    }
+//    _isStatusBarHiddenBeforeShowCamera = [UIApplication sharedApplication].statusBarHidden;
+//    if ([UIApplication sharedApplication].statusBarHidden == NO) {
+//        //iOS7，需要plist里设置 View controller-based status bar appearance 为NO
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    }
 }
 
 - (void)dealloc {
     //status bar
-    if ([UIApplication sharedApplication].statusBarHidden != _isStatusBarHiddenBeforeShowCamera) {
-        [[UIApplication sharedApplication] setStatusBarHidden:_isStatusBarHiddenBeforeShowCamera withAnimation:UIStatusBarAnimationSlide];
-    }
+//    if ([UIApplication sharedApplication].statusBarHidden != _isStatusBarHiddenBeforeShowCamera) {
+//        [[UIApplication sharedApplication] setStatusBarHidden:_isStatusBarHiddenBeforeShowCamera withAnimation:UIStatusBarAnimationSlide];
+//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +66,7 @@
 #pragma mark - action(s)
 - (void)showCameraWithParentController:(UIViewController*)parentController {
     SCCaptureCameraController *con = [[SCCaptureCameraController alloc] init];
+  con.albumName = self.customAlbumName;
     [self setViewControllers:[NSArray arrayWithObjects:con, nil]];
     [parentController presentModalViewController:self animated:YES];
 }
