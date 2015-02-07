@@ -14,10 +14,6 @@
 #import "SCNavigationController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-//static void * CapturingStillImageContext = &CapturingStillImageContext;
-//static void * RecordingContext = &RecordingContext;
-//static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
-
 #define SWITCH_SHOW_FOCUSVIEW_UNTIL_FOCUS_DONE      0   //对焦框是否一直闪到对焦完成
 
 #define SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA   1   //没有拍照功能的设备，是否给一张默认图片体验一下
@@ -37,11 +33,6 @@
 #define ADJUSTINT_FOCUS @"adjustingFocus"
 #define LOW_ALPHA   0.7f
 #define HIGH_ALPHA  1.0f
-
-//typedef enum {
-//    bottomContainerViewTypeCamera    =   0,  //拍照页面
-//    bottomContainerViewTypeAudio     =   1   //录音页面
-//} BottomContainerViewType;
 
 @interface SCCaptureCameraController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
   int alphaTimes;
