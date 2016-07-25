@@ -8,9 +8,9 @@ It can work in iPad, too.
 ScreenShots：
 ----------
 
-iPhone4:![image](https://github.com/xhzengAIB/SCCaptureCamera/raw/master/Screenshots/screenShot_iPhone4.png)          
+iPhone4:![image](https://raw.githubusercontent.com/Aevit/SCCaptureCamera/master/Screenshots/screenShot_iPhone4.png)          
 
-iPhone5:![image](https://github.com/xhzengAIB/SCCaptureCamera/raw/master/Screenshots/screenShot_iPhone5.png)
+iPhone5:![image](https://raw.githubusercontent.com/Aevit/SCCaptureCamera/master/Screenshots/screenShot_iPhone5.png)
 
 
 Usage：
